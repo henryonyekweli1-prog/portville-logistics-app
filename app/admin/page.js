@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import Shell from "@/components/shwll";
+import shell from "@/components/shell";
 
 export default function Admin() {
   const [rows, setRows] = useState([]);
