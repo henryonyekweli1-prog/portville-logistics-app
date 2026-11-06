@@ -38,7 +38,7 @@ export default function Admin() {
 
   async function act(id, action) {
     setErr("");
-    const r = await fetch(/api/admin/payments/${id}, {
+    const r = await fetch("/api/admin/payment/" + id, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ action, adminNote: notes[id] || "" }),
