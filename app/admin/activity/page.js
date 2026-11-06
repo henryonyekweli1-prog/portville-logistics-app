@@ -8,7 +8,7 @@ export default function Activity() {
   const [data, setData] = useState(null);
 
   async function load(d) {
-    const r = await fetch(/api/admin/activity?date=${d});
+    const r = await fetch(`/api/admin/activity?date=${d}`);
     if (r.status === 401 || r.status === 403) return location.href = "/";
     setData(await r.json());
   }
