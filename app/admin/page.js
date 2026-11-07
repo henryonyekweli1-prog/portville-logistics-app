@@ -82,6 +82,31 @@ export default function Admin() {
           </tbody>
         </table>
       </div>
-    </Shell>
+    <h2 className="font-bold mb-2 mt-6">All Orders History</h2>
+  <div className="card overflow-x-auto p-0">
+    <table className="w-full text-left text-sm">
+      <thead className="bg-navy-50 text-navy">
+        <tr>
+          <th className="px-4 py-3 font-medium">Item</th>
+          <th className="px-4 py-3 font-medium">Vendor</th>
+          <th className="px-4 py-3 font-medium">Amount</th>
+          <th className="px-4 py-3 font-medium">Status</th>
+          <th className="px-4 py-3 font-medium">Rider</th>
+        </tr>
+      </thead>
+      <tbody>
+        {orders.length === 0 && (<tr><td colSpan={5} className="px-4 py-6 text-slate-600">No orders yet.</td></tr>)}
+        {orders.map((o) => (
+          <tr key={o._id} className="border-t border-slate-200">
+            <td className="px-4 py-3">{o.item}</td>
+            <td className="px-4 py-3">{o.vendor?.name || o.vendor?.email}</td>
+            <td className="px-4 py-3">₦{o.amount?.toLocaleString()}</td>
+            <td className="px-4 py-3">{o.status}</td>
+            <td className="px-4 py-3">{o.rider?.name || "-"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div></Shell>
   );
 }
