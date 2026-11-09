@@ -1,2 +1,2 @@
-const moneyReceived = Array.isArray(payments) ? payments.filter((p) => { const s = p.paymentStatus || p.status; return s === "confirmed" || s === "approved"; }).reduce((s, p) => s + (Number(p.amount) || 0), 0) : 0;
-const waiting = Array.isArray(payments) ? payments.filter((p) => { const s = p.paymentStatus || p.status; return !s || s === "pending" || s === "submitted"; }).length : 0;
+const moneyReceived = Array.isArray(orders) ? orders.filter((p) => { const s = p.paymentStatus || p.status; return s === "confirmed" || s === "approved"; }).reduce((s, p) => s + (Number(p.amount) || 0), 0) : 0;
+const waiting = Array.isArray(orders) ? orders.filter((p) => { const s = p.paymentStatus || p.status; return !s || s === "pending" || s === "submitted"; }).length : 0;
