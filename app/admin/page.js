@@ -15,7 +15,7 @@ export default function Admin() {
       const data = await r.json();
       const payments = Array.isArray(data) ? data : data.payments || [];
 payments.forEach((p) => { if (p.paymentStatus) p.status = p.paymentStatus; });
-      if (Array.isArray(payments)) setRows(payments);
+      if (Array.isArray(payments)) setRows(payments.filter((p) => !p.status || p.status === "pending"));
 
       const ro2 = await fetch("/api/admin/orders");
       let orderList = [];
